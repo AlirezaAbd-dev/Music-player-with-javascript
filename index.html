@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body id="body">
+    <!-- container -->
+    <div class="player">
+      <audio id="curr-track"></audio>
+      <!-- whole music player -->
+      <div class="wrapper">
+        <!-- image and title -->
+        <div class="details">
+          <div class="now-playing" id="now-playing">PLAYING x OF y</div>
+          <img class="track-art" id="track-art"></img>
+          <div class="track-name" id="track-name">Track name</div>
+          <div class="track-artist" id="track-artist">Track artist</div>
+        </div>
+<!-- slider timer -->
+        <div class="slider_container">
+          <div class="current-time" id="current-time">00:00</div>
+          <input type="range" min="1" max="100" value="0" class="seek_slider" id="seek_slider" />
+          <div class="total-duration" id="total-duration">00:00</div>
+        </div>
+<!-- slider volume -->
+        <div class="slider_container">
+            <i class="material-icons fa-volume-down">volume_down</i>
+            <input type="range" min="1" max="100" value="99" class="volume_slider" id="volume_slider" onchange="setVolume()">
+            <i class="material-icons fa-volume-up">volume_up</i>
+        </div>
+<!-- control buttons -->
+        <div class="buttons">
+            <div class="random-track" id="random-track">
+            <i class="material-icons fa-random" id="fa-random" title="random">shuffle</i>
+          </div>
+            <div class="prev-track" id="prev-track" >
+            <i class="material-icons fa-step-backward" title="previous" >skip_previous</i>
+          </div>
+            <div class="playpause-track" id="playpause-track" >
+            <i class="material-icons fa-play-circle" id="fa-play-circle" style="font-size: 3em;" title="play/pause">play_circle</i>
+            </div>
+
+            <div class="next-track" id="next-track">
+            <i class="material-icons fa-step-forward" title="next">skip_next</i>
+          </div>
+            <div class="repeat-track">
+            <i class="material-icons" title="repeat" >repeat</i>
+          </div>
+        </div>
+        <!-- i don`t now -->
+        
+      </div>
+    </div>
+  </body>
+</html>
