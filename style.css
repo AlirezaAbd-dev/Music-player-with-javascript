@@ -3,6 +3,7 @@ body{
     height: 100vh;
 }
 .player{
+    position: relative;
     height: 95vh;
     display: flex;
     align-items: center;
@@ -10,6 +11,9 @@ body{
     justify-content: center;
 }
 .wrapper{
+    position: relative;
+    overflow: hidden;
+    background: #bdbdbd;
     border: 1px solid transparent;
     padding: 30px;
     border-radius: 20px;
@@ -46,7 +50,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .active{
     color: black;
@@ -66,6 +70,7 @@ body{
 .prev-track:hover,
 .next-track:hover{
 opacity: 1.0;
+color: white;
 }
 .slider_container{
     display: flex;
@@ -133,53 +138,150 @@ to{
     transform: rotate(359deg);
 }
 }
-.loader{
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.loader,.stroke{
-    background: #f1f1f1;
-    height: 150%;
-    width: 10px;
-    border-radius: 50px;
-    margin: 0px 50px;
-    animation: animate 1.4s linear infinite;
-}
-@keyframes animate {
-    50%{
-        height: 20%;
-        background: #4286f4;
-    }
-    100%{
-        height: 100%;
-    }
-}
-.stroke:nth-child(1){
-    animation-delay: 0s;
-}
-.stroke:nth-child(2){
-    animation-delay: 0.3s;
-}
-.stroke:nth-child(3){
-    animation-delay: 0.6s;
-}
-.stroke:nth-child(4){
-    animation-delay: 0.9s;
-}
-.stroke:nth-child(5){
-    animation-delay: 0.6s;
-}
-.stroke:nth-child(6){
-    animation-delay: 0.3s;
-}
-.stroke:nth-child(7){
-    animation-delay: 0s;
-}
 .details{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#play-list-button{
+    padding: 0;
+    margin: 0;
+}
+#list-title{
+margin: 0;
+}
+#list-music-name{
+margin: 0;
+}
+.playlist-container{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,rgb(24, 24, 24),rgb(51, 51, 51));
+    z-index: +1;
+    border-radius: 20px;
+}
+@keyframes playlist {
+    0%{
+top: 1000;
+    }
+    100%{
+top: 0;
+    }
+}
+.playlist{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 10px;
+    padding: 10px;
+    border: rgb(83, 83, 83) solid 1px;
+    border-radius: 20px;
+    position: relative;
+}
+#list-image{
+    width: 100%;
+}
+.playlist-info{
+    min-width: 200px;
+    margin: 20px;
+}
+#list-title{
+color:rgb(150, 150, 150);
+}
+#list-music-name{
+    color: rgb(150, 150, 150);
+}
+#timer{
+    color: rgb(150, 150, 150);
+}
+.music-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -60%;
+    opacity: 0;
+    pointer-events: none;
+    background: #242323;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    border-radius: 20px;
+    transition: all .3s ease;
+}
+.music-list.show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+.header{
+    position: relative;
+}
+.header .row{
+    margin: 10px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    color: #515c6f;
+}
+.header .row i{
+    cursor: default;
+}
+.header .row span{
+    margin-left: 5px;
+}
+.header #close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+    color: #515c6f;
+}
+.music-list ul{
+    padding: 20px;
+    margin-top: 10px 0;
+    max-height: 260px;
+    overflow: auto;
+}
+.music-list ul li{
+    list-style: none;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    color: #515c6f;
+    border-bottom: 1px solid #515c6f;
+}
+.music-list ul li:last-child{
+    border-bottom: 0px;
+}
+.music-list ul li .row span{
+    font-size: 17px;
+}
+.music-list ul li .row p{
+    opacity: 0.6;
+}
+ul li .audio-duration{
+    margin-left: 100px;
+    font-size: 16px;   
+}
+.music-list ul::-webkit-scrollbar{
+    width: 0px;
+}
+.music-list ul li:hover{
+    color: rgb(177, 197, 0);
+}
+.header #close:hover{
+    color: rgb(177, 197, 0);
 }

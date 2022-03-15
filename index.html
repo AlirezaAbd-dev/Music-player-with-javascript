@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="index.js" defer></script>
+    
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
@@ -33,7 +32,7 @@
 <!-- slider volume -->
         <div class="slider_container">
             <i class="material-icons fa-volume-down">volume_down</i>
-            <input type="range" min="1" max="100" value="99" class="volume_slider" id="volume_slider" onchange="setVolume()">
+            <input type="range" min="1" max="100" value="99" class="volume_slider" id="volume_slider">
             <i class="material-icons fa-volume-up">volume_up</i>
         </div>
 <!-- control buttons -->
@@ -52,12 +51,35 @@
             <i class="material-icons fa-step-forward" title="next">skip_next</i>
           </div>
             <div class="repeat-track">
-            <i class="material-icons" title="repeat" >repeat</i>
+            <i class="material-icons" id="repeat" title="repeat" >repeat</i>
           </div>
+
+          
+
+          <!-- end player -->
         </div>
-        <!-- i don`t now -->
         
+        <div id="play-list-button">
+          <i class="material-icons" id="play-list-Btn" title="play list">list</i>
+        </div>
+
+
+<!-- must be append -->
+        <div class="music-list">
+          <div class="header">
+            <div class="row">
+              <i class="list material-icons">queue_music</i>
+              <span>Music List</span>
+            </div>
+            <i id="close" class="material-icons">close</i>
+          </div>
+          <ul id="ul">
+            
+          </ul>
+        </div>
+        <!-- end wrapper -->
       </div>
     </div>
   </body>
+  <script src="index.js" ></script>
 </html>
