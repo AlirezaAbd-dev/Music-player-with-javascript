@@ -30,38 +30,6 @@ let track_index = 0,
 
     random_bg_color();
     
-
-// musics resources
-const music_list = [
-    {
-        img: "./images/Alan-Walker-alone-400x400.jpg",
-        name: "Alone",
-        artist: "Alan Walker",
-        music: "./musics/Alan Walker - Alone.mp3",
-        time:"02:41"
-    },
-    {
-        img: "./images/artworks-000467478369-g90jr4-t500x500.jpg",
-        name: "Faded",
-        artist: "Alan Walker",
-        music: "./musics/Alan-Walker-Faded.mp3",
-        time:"03:32"
-    },
-    {
-        img: "./images/artworks-fy8KQvvhyNlki9rx-myOEyw-t500x500.jpg",
-        name: "Playground",
-        artist: "Bea Miller",
-        music: "./musics/Bea Miller, Arcane, League of Legends - Playground from the.mp3",
-        time:"03:50"
-    },
-    {
-        img: "./images/alanwalkerdarkside.jpg",
-        name: "Darkside",
-        artist: "Alan Walker",
-        music: "./musics/Darkside_CXU7Xlf8wTI_140.mp3",
-        time:"03:31"
-    }
-];
 // calling track index function
 loadTrack(track_index);
 
@@ -246,7 +214,7 @@ close_list.addEventListener("click",e=>{
 let ul=document.getElementById("ul");
 
 for(i=0;i<music_list.length;i++){
-ul.innerHTML+=`<li value="${i.parseInt}">
+ul.innerHTML+=`<li>
 <div class='row li'>
   <span>${music_list[i].name}</span>
   <p>${music_list[i].artist}</p>
@@ -255,44 +223,15 @@ ul.innerHTML+=`<li value="${i.parseInt}">
 </li>`;
 }
 let li=document.querySelectorAll(".li");
+	for(let i=0;i<li.length;i++){
+		li[i].addEventListener("click",function(){
+			clickLi(i);
+		})
+	}
 function clickLi(value){
-    console.log(value);
+    track_index=value;
+   loadTrack(track_index);
+   playTrack();
 }
-
-li[0].addEventListener("click",e=>{
-    track_index=0
-    loadTrack(track_index);
-    playTrack();
-})
-li[1].addEventListener("click",e=>{
-    track_index=1
-    loadTrack(track_index);
-    playTrack();
-})
-li[2].addEventListener("click",e=>{
-    track_index=2
-    loadTrack(track_index);
-    playTrack();
-})
-li[3].addEventListener("click",e=>{
-    track_index=3
-    loadTrack(track_index);
-    playTrack();
-})
-li[4].addEventListener("click",e=>{
-    track_index=4
-    loadTrack(track_index);
-    playTrack();
-})
-li[5].addEventListener("click",e=>{
-    track_index=5
-    loadTrack(track_index);
-    playTrack();
-})
-li[6].addEventListener("click",e=>{
-    track_index=6
-    loadTrack(track_index);
-    playTrack();
-})
 // end of load window
 })
